@@ -14,20 +14,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
 
-    let dataController = DataController(modelName: "Job_Search")
+    //let dataController = DataController(modelName: "Job_Search")
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        guard #available(iOS 13.0, *) else {
-            dataController.load()
-            
-            let navigationController = window?.rootViewController as! UINavigationController
-            let tableViewController = navigationController.topViewController as! TableViewController
-            tableViewController.dataController = dataController
+//
+//            dataController.load()
+//
+//            let navigationController = window?.rootViewController as! UINavigationController
+//            let tableViewController = navigationController.topViewController as! TableViewController
+//            tableViewController.dataController = dataController
             return true
-        }
-        return true
         
     }
 

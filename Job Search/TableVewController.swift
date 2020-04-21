@@ -21,7 +21,8 @@ class TableViewController: UITableViewController, NSFetchedResultsControllerDele
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
+        
         //Refresh table contents on view load
         tableView.reloadData()
     }
