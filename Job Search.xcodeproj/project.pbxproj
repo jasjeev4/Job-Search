@@ -19,6 +19,7 @@
 		C8D07716244EFB4200F49B41 /* NewJobViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D07715244EFB4200F49B41 /* NewJobViewController.swift */; };
 		C8D07719244F080A00F49B41 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D07718244F080A00F49B41 /* DataController.swift */; };
 		C8D0771B244F131700F49B41 /* TableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D0771A244F131700F49B41 /* TableCellView.swift */; };
+		C8D0771C244F4CB100F49B41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D076E1244EF09500F49B41 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -301,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8D0771C244F4CB100F49B41 /* AppDelegate.swift in Sources */,
 				C8D076FC244EF09C00F49B41 /* Job_SearchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
