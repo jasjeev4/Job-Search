@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C84445802450849B002D7374 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = C844457F2450849B002D7374 /* Client.swift */; };
+		C8444582245089D1002D7374 /* CompanyPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8444581245089D1002D7374 /* CompanyPhoto.swift */; };
 		C8D076E2244EF09500F49B41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D076E1244EF09500F49B41 /* AppDelegate.swift */; };
 		C8D076E4244EF09500F49B41 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D076E3244EF09500F49B41 /* SceneDelegate.swift */; };
 		C8D076E6244EF09500F49B41 /* TableVewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D076E5244EF09500F49B41 /* TableVewController.swift */; };
@@ -40,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C844457F2450849B002D7374 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		C8444581245089D1002D7374 /* CompanyPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyPhoto.swift; sourceTree = "<group>"; };
 		C8D076DE244EF09500F49B41 /* Job Search.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Job Search.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8D076E1244EF09500F49B41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8D076E3244EF09500F49B41 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +89,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C844457D24508020002D7374 /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				C8444581245089D1002D7374 /* CompanyPhoto.swift */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
+		C844457E2450847C002D7374 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				C844457F2450849B002D7374 /* Client.swift */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
 		C8D076D5244EF09500F49B41 = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +171,8 @@
 		C8D07717244F07CC00F49B41 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C844457E2450847C002D7374 /* Client */,
+				C844457D24508020002D7374 /* Responses */,
 				C8D076EA244EF09500F49B41 /* Job_Search.xcdatamodeld */,
 				C8D07718244F080A00F49B41 /* DataController.swift */,
 			);
@@ -294,6 +316,8 @@
 				C8D076E4244EF09500F49B41 /* SceneDelegate.swift in Sources */,
 				C8D07716244EFB4200F49B41 /* NewJobViewController.swift in Sources */,
 				C8D0771B244F131700F49B41 /* TableCellView.swift in Sources */,
+				C84445802450849B002D7374 /* Client.swift in Sources */,
+				C8444582245089D1002D7374 /* CompanyPhoto.swift in Sources */,
 				C8D076EC244EF09500F49B41 /* Job_Search.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

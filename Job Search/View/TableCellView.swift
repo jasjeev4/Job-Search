@@ -10,7 +10,8 @@ import Foundation
 import UIKit
 
 internal final class TableCellView: UITableViewCell{
-    @IBOutlet weak var companyImage: UIImageView!
+    //@IBOutlet weak var companyImage: UIImageView!
+    @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var company: UILabel!
     @IBOutlet weak var role: UILabel!
     @IBOutlet weak var applied: UIButton!

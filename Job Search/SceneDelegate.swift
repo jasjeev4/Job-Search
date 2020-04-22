@@ -12,7 +12,6 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    let dataController = DataController.sharedInstance()
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -22,11 +21,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
         print(paths[0])
         
-        dataController.load()
-
-        let navigationController = window?.rootViewController as! UINavigationController
-        let tableViewController = navigationController.topViewController as! TableViewController
-        tableViewController.dataController = dataController
     
         guard let _ = (scene as? UIWindowScene) else { return }
     }

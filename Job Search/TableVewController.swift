@@ -10,9 +10,55 @@ import UIKit
 import CoreData
 
 class TableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
-    var dataController:DataController!
     
-    var fetchedResultsController:NSFetchedResultsController<Job>!
+       var jobList: [NSManagedObject] = []
+       var fetchedResultsController:NSFetchedResultsController<Job>!
+    
+    @IBAction func onSortChange(_ sender: Any) {
+        let alert = UIAlertController(title: "Change sort", message: "Do you want sort from recent or oldest?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Recent", style: .default, handler: { action in
+            UserDefaults.standard.set(true, forKey: "sortByRecent")
+            
+            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+              return
+            }
+
+            let managedContext = appDelegate.persistentContainer.viewContext
+            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Job")
+            let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: false)
+            fetchRequest.sortDescriptors = [sortDescriptor]
+
+            do {
+                self.jobList = try managedContext.fetch(fetchRequest)
+                self.tableView.reloadData()
+            } catch let error as NSError {
+              print("Could not fetch. \(error), \(error.userInfo)")
+            }
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Oldest", style: .default, handler: { action in
+           UserDefaults.standard.set(false, forKey: "sortByRecent")
+            
+           guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                        return
+                      }
+
+                      let managedContext = appDelegate.persistentContainer.viewContext
+                      let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Job")
+                      let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: true)
+                      fetchRequest.sortDescriptors = [sortDescriptor]
+
+                      do {
+                          self.jobList = try managedContext.fetch(fetchRequest)
+                          self.tableView.reloadData()
+                      } catch let error as NSError {
+                        print("Could not fetch. \(error), \(error.userInfo)")
+                      }
+        }))
+        
+        self.present(alert, animated: true)
+    }
 
 
     @IBAction func onNewJob(_ sender: Any) {
@@ -21,6 +67,27 @@ class TableViewController: UITableViewController, NSFetchedResultsControllerDele
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        let sortByAscending = UserDefaults.standard.bool(forKey: "sortByRecent")
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+          return
+        }
+    
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Job")
+        
+        if(sortByAscending) {
+            let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: false)
+            fetchRequest.sortDescriptors = [sortDescriptor]
+        }
+        
+        
+        do {
+          jobList = try managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+          print("Could not fetch. \(error), \(error.userInfo)")
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -29,49 +96,40 @@ class TableViewController: UITableViewController, NSFetchedResultsControllerDele
         //Refresh table contents on view load
         tableView.reloadData()
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // If this is a NotesListViewController, we'll configure its `Notebook`
-        if let vc = segue.destination as? NewJobViewController {
-                vc.dataController = dataController
-        }
-    }
-    
-    override func viewDidLoad() {
-        setupFetchedResultsController()
-    }
         
-    fileprivate func setupFetchedResultsController() {
-        let fetchRequest:NSFetchRequest<Job> = Job.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: false)
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: "jobs")
-        fetchedResultsController.delegate = self
-        do {
-            try fetchedResultsController.performFetch()
-        } catch {
-            fatalError("The fetch could not be performed: \(error.localizedDescription)")
-        }
-    }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return fetchedResultsController.sections?.count ?? 1
-    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
+        return jobList.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let aJob = fetchedResultsController.object(at: indexPath)
+        let person = jobList[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath) as! TableCellView
 
+        print("Date: ")
+        print(person.value(forKeyPath: "creationDate"))
+        
         // Configure cell
-        cell.company.text = aJob.title
-        cell.role.text = aJob.role
+        cell.company.text = person.value(forKeyPath: "title") as? String
+        cell.role.text = person.value(forKeyPath: "role") as? String
             
+        
+        let photoURL =  person.value(forKeyPath: "photoURL") as? String
+        
+        //load image
+        Client.downloadPhoto(urlString: photoURL!) { (image, error) in
+           guard let image = image else {
+               return
+           }
+           cell.photo.image = image
+        }
         return cell
     }
 	
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200.0;//Choose your custom row height
+    }
+    
+    
 }
