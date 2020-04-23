@@ -42,7 +42,8 @@ class NewJobViewController: UIViewController {
         self.removeSpinner()
     
         if (error != nil) {
-            print("There was an error")
+            // Alert for network faliure
+            alert(title: "Network faliure", message: "There was an error")
         }
         else {
             // Save to store
