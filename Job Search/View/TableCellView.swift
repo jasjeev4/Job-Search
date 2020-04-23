@@ -11,6 +11,8 @@ import UIKit
 
 protocol ProgressButtonsDelegate{
     func applyTapped(at index:IndexPath)
+    func interviewTapped(at index:IndexPath)
+    func offerTapped(at index:IndexPath)
 }
 
 internal final class TableCellView: UITableViewCell{
@@ -28,4 +30,10 @@ internal final class TableCellView: UITableViewCell{
         self.delegate?.applyTapped(at: indexPath)
     }
     
+    @IBAction func interviewButtonTap(_ sender: Any) {
+        self.delegate?.interviewTapped(at: indexPath)
+    }
+    @IBAction func offerButtonTap(_ sender: Any) {
+        self.delegate?.offerTapped(at: indexPath)
+    }
 }

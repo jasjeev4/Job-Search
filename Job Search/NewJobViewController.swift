@@ -34,8 +34,6 @@ class NewJobViewController: UIViewController {
         else {
             // Load image url
             Client.loadLogo(company: jobTitle.text!, completion: handleLogoResponse(photoURL:error:))
-            
-            
         }
     }
     
