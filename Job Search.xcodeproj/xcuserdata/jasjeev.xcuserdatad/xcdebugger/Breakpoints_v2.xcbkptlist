@@ -3,4 +3,99 @@
    uuid = "8595E0F5-F4CD-436A-A821-F88111648360"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8E17095F-414A-4272-B9BF-3B18E69FC955"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Job Search/NewJobViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "NewJobViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "8E17095F-414A-4272-B9BF-3B18E69FC955 - 9ac2200cfc0cfb5d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Job_Search.NewJobViewController.__deallocating_deinit"
+                  moduleName = "Job Search"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jasjeev/Documents/playground/Job%20Search/Job%20Search/NewJobViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "8E17095F-414A-4272-B9BF-3B18E69FC955 - 49724088cafc4102"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Job_Search.NewJobViewController.__allocating_init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Job_Search.NewJobViewController"
+                  moduleName = "Job Search"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jasjeev/Documents/playground/Job%20Search/Job%20Search/NewJobViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  uuid = "8E17095F-414A-4272-B9BF-3B18E69FC955 - a86c253cedd4e281"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Job_Search.NewJobViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Job_Search.NewJobViewController"
+                  moduleName = "Job Search"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jasjeev/Documents/playground/Job%20Search/Job%20Search/NewJobViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "228">
+               </Location>
+               <Location
+                  uuid = "8E17095F-414A-4272-B9BF-3B18E69FC955 - 8ea9c8a2ff2f6ef5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Job_Search.NewJobViewController.__allocating_init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Job_Search.NewJobViewController&gt;"
+                  moduleName = "Job Search"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jasjeev/Documents/playground/Job%20Search/Job%20Search/NewJobViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  uuid = "8E17095F-414A-4272-B9BF-3B18E69FC955 - 7461e9fd8738edfa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Job_Search.NewJobViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Job_Search.NewJobViewController&gt;"
+                  moduleName = "Job Search"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jasjeev/Documents/playground/Job%20Search/Job%20Search/NewJobViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "148">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

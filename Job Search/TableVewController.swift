@@ -9,10 +9,9 @@
 import UIKit
 import CoreData
 
-class TableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
-    
-       var jobList: [NSManagedObject] = []
-       var fetchedResultsController:NSFetchedResultsController<Job>!
+class TableViewController: UITableViewController, NSFetchedResultsControllerDelegate, ProgressButtonsDelegate {
+    var jobList: [NSManagedObject] = []
+    var fetchedResultsController:NSFetchedResultsController<Job>!
     
     @IBAction func onSortChange(_ sender: Any) {
         let alert = UIAlertController(title: "Change sort", message: "Do you want sort from recent or oldest?", preferredStyle: .alert)
@@ -107,13 +106,19 @@ class TableViewController: UITableViewController, NSFetchedResultsControllerDele
         let person = jobList[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath) as! TableCellView
 
-        print("Date: ")
-        print(person.value(forKeyPath: "creationDate"))
+//        print("Date: ")
+//        print(person.value(forKeyPath: "creationDate"))
+//        
+//        if let applied = person.value(forKeyPath: "applied") {
+//            print(applied)
+//        }
+//        else {
+//            print("No")
+//        }
         
         // Configure cell
         cell.company.text = person.value(forKeyPath: "title") as? String
         cell.role.text = person.value(forKeyPath: "role") as? String
-            
         
         let photoURL =  person.value(forKeyPath: "photoURL") as? String
         
@@ -124,7 +129,39 @@ class TableViewController: UITableViewController, NSFetchedResultsControllerDele
            }
            cell.photo.image = image
         }
+        cell.delegate = self
+        cell.indexPath = indexPath
         return cell
+    }
+    
+    func applyTapped(at index: IndexPath) {
+        print("button tapped at index:\(index)")
+        
+        let cell = self.tableView.cellForRow(at: index) as! TableCellView
+        let gold = #colorLiteral(red: 0.9882352941, green: 0.7607843137, blue: 0, alpha: 1)
+        cell.interview.tintColor = gold
+        
+        
+        // Update to store
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+              return
+            }
+        
+        if let company = cell.company.text {
+            let managedContext = appDelegate.persistentContainer.viewContext
+            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Job")
+            fetchRequest.predicate = NSPredicate(format: "title = %@", company)
+            do {
+              let test = try managedContext.fetch(fetchRequest)
+                let objectUpdate = test[0] as NSManagedObject
+                objectUpdate.setValue(true, forKey: "applied")
+                
+                try managedContext.save()
+            } catch let error as NSError {
+              print("Could not fetch. \(error), \(error.userInfo)")
+            }
+        }
     }
 	
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
