@@ -5,10 +5,11 @@
         <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="interview" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="offer" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="photoURL" optional="YES" attributeType="String"/>
         <attribute name="role" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Job" positionX="-63" positionY="-18" width="128" height="28"/>
+        <element name="Job" positionX="-63" positionY="-18" width="128" height="148"/>
     </elements>
 </model>
